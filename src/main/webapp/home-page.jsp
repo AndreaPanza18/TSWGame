@@ -1,4 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri='http://java.sun.com/jsp/jstl/core' %>
+<%@ taglib prefix="fn" uri='http://java.sun.com/jsp/jstl/functions' %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -8,12 +10,17 @@
     <link type="text/css" rel="stylesheet" href="home.css">
 </head>
 <body>
+<h1>TSW Games</h1>
 <ul class="top-navbar">
     <li><a href='search-category-form.html'>Categories</a></li>
+    <c:if test="${empty User}">
     <li><a href='login.html'>Login</a></li>
+    </c:if>
     <li><a>Search</a></li>
     <li><a>Cart</a></li>
-    <li><a>Profile</a></li>
+    <c:if test="${not empty User}">
+    <li><a>${User.name}</a></li>
+    </c:if>
 </ul>
 
 </body>

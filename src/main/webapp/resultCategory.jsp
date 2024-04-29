@@ -16,16 +16,16 @@
 </head>
 <body>
     <h1 style="text-align: center">All ${search} games</h1>
-
+    <div class="game-result">
     <c:forEach items="${games}" var = "game">
-        <div style="border: 1px solid black">
-        <br><img src="images/${fn:replace(game.name, ' ', '')}.jpg" style="width:200px;height:300px;" alt="${game.name}image">
+        <div style="border: 1px solid black" class="game-display">
+        <br><img src="images/${fn:replace(game.name, ' ', '')}.jpg" alt="${game.name}image">
         <p>Game = ${game.name}</p>
         <p>Price = $${game.price}0</p>
         <input type="button" value="Add to cart"><br>
-        </div>
+        </div><br><br>
     </c:forEach>
-
+    </div>
 
 </body>
 </html>

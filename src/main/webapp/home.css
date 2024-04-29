@@ -71,6 +71,41 @@ a:hover{
     color: #F0F0F0;
 }
 
-.select-category select,input:hover{
+.select-category input:hover{
     background-color: #274768;
+}
+
+.game-display{
+    border: 1px solid black;
+    background-color: #C0C0C0;
+    margin: 20px
+}
+
+.game-display img{
+    width:200px;
+    height:300px;
+}
+
+.game-display img:hover{
+    width:250px;
+    height:375px;
+}
+
+.game-display input{
+    background-color: #006100;
+    color: #F0F0F0;
+    width: 100px;
+    height: 50px;
+
+}
+
+.game-display input:hover{
+    background-color: #014701;
+    width: 130px;
+    height: 65px;
+}
+
+.game-result{
+    display:flex;
+    flex-wrap: wrap;
 }

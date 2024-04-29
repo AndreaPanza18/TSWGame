@@ -25,9 +25,10 @@ public class Login extends HttpServlet {
             out.println("<p>Error: Quest'account non esiste</p>");
             out.println("</html></body>");
         }else{
-            out.println("<html><body>");
-            out.println("<p>" + c.getName() + " bentornato</p>");
-            out.println("</html></body>");
+            HttpSession ssn = request.getSession(true);
+            ssn.setAttribute("User", c);
+            RequestDispatcher dispatcher = request.getRequestDispatcher("home-page.jsp");
+            dispatcher.forward(request, response);
         }
     }
 }

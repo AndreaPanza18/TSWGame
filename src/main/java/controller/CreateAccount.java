@@ -20,9 +20,10 @@ public class CreateAccount extends HttpServlet{
         c.setPassword(request.getParameter("password"));
 
         if(create.CreateAccount(c)){
-            out.println("<html><body>");
-            out.println("<p>" + c.getName() + " benvenuto</p>");
-            out.println("</html></body>");
+            HttpSession ssn = request.getSession(true);
+            ssn.setAttribute("User", c);
+            RequestDispatcher dispatcher = request.getRequestDispatcher("home-page.jsp");
+            dispatcher.forward(request, response);
         }
         else{
             out.println("<html><body>");
