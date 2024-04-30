@@ -6,6 +6,8 @@ h1{
     background-color: #FF9900;
     color: #F0F0F0;
     text-align: center;
+    margin-bottom: 0;
+
 }
 
 ul.top-navbar{
@@ -14,11 +16,15 @@ ul.top-navbar{
     padding: 0;
     background-color:#FF9900;
     overflow: hidden;
+    margin-top: 0;
+
+
 }
 
 .top-navbar li{
     display: inline;
     float: left;
+    display: flex;
 }
 
 .top-navbar a{
@@ -76,8 +82,6 @@ a:hover{
 }
 
 .game-display{
-    border: 1px solid black;
-    background-color: #C0C0C0;
     margin: 20px
 }
 
@@ -108,4 +112,10 @@ a:hover{
 .game-result{
     display:flex;
     flex-wrap: wrap;
+}
+
+h2{
+    background-color: #2F577F;
+    color: #F0F0F0;
+    text-align: center;
 }
