@@ -14,7 +14,9 @@
 </head>
 <body>
 <h1>TSW Games</h1>
+
 <ul class="top-navbar">
+    <li><img src="images/TSWGames.jpg"></li>
     <li><a href='search-category-form.html'>Categories</a></li>
     <c:if test="${empty User}">
     <li><a href='login.html'>Login</a></li>
@@ -22,7 +24,7 @@
     <li><a>Search</a></li>
     <li><a>Cart</a></li>
     <c:if test="${not empty User}">
-    <li><a>${User.name}</a></li>
+    <li><a href="profile-page.jsp">${User.name}</a></li>
     </c:if>
 </ul>
 

@@ -25,6 +25,7 @@ ul.top-navbar{
     display: inline;
     float: left;
     display: flex;
+    align-items: center;
 }
 
 .top-navbar a{
@@ -36,6 +37,16 @@ ul.top-navbar{
 
 .top-navbar li a:hover {
     background-color: #FFB647;
+}
+
+.top-navbar img{
+    width:40px;
+    height:40px;
+    padding: 4px 5px;
+    display: block;
+    border-radius: 50%;
+    background-color: #FF9900;
+    display: inline;
 }
 
 a{
