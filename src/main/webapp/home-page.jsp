@@ -19,13 +19,14 @@
     <li><img src="images/TSWGames.jpg"></li>
     <li><a href='search-category-form.html'>Categories</a></li>
     <c:if test="${empty User}">
-    <li><a href='login.html'>Login</a></li>
+        <li><a href='login.html'>Login</a></li>
+    </c:if>
+    <c:if test="${not empty User}">
+        <li><a href="profile-page.jsp">${User.name}</a></li>
+        <li><a href="${pageContext.request.contextPath}/GetCart">Cart</a> </li>
     </c:if>
     <li><a>Search</a></li>
-    <li><a>Cart</a></li>
-    <c:if test="${not empty User}">
-    <li><a href="profile-page.jsp">${User.name}</a></li>
-    </c:if>
+
 </ul>
 
 <% GameDOA gameSearch = new GameDOA();

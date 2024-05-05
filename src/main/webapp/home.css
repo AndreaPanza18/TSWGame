@@ -28,14 +28,14 @@ ul.top-navbar{
     align-items: center;
 }
 
-.top-navbar a{
+.top-navbar a,input{
     color: #F0F0F0;
     display: block;
     padding: 14px 16px;
     background-color: #FF9900;
 }
 
-.top-navbar li a:hover {
+.top-navbar li a,input:hover {
     background-color: #FFB647;
 }
 
