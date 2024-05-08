@@ -47,4 +47,6 @@ public class CustomerDOA {
             throw new RuntimeException(e);
         }
     }
+
+    public boolean AddToCart()
 }
