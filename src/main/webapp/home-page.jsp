@@ -35,7 +35,7 @@
 
 
     ssn.setAttribute("games", games);
-    %>
+%>
 <%@include file = "show-games.jsp"%>
 <h2>Trending games</h2>
 </body>

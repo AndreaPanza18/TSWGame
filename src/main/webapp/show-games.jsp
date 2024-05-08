@@ -21,7 +21,10 @@
       <br><img src="images/${fn:replace(game.name, ' ', '')}.jpg" alt="${game.name}image">
       <p>Game = ${game.name}</p>
       <p>Price = $${game.price}0</p>
-      <input type="button" value="Add to cart"><br>
+      <form ACTION="AddToCart" method="post">
+        <input type="hidden" name="gameID" value="${game.id}" />
+        <input type="submit" value="Add to cart"><br>
+      </form>
     </div><br><br>
   </c:forEach>
 </div>
