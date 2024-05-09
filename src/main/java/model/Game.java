@@ -6,6 +6,7 @@ public class Game {
     private String category;
 
     private Double price;
+    private int quantity;
 
     public int getId() {
         return id;
@@ -23,6 +24,7 @@ public class Game {
     public Double getPrice() {
         return price;
     }
+    public int getQuantity(){return quantity;}
 
     public void setId(int id) {
         this.id = id;
@@ -39,4 +41,5 @@ public class Game {
     public void setPrice(Double price) {
         this.price = price;
     }
+    public void setQuantity(int quantity){this.quantity = quantity;}
 }

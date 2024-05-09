@@ -22,6 +22,7 @@
         <div  class="game-display">
             <br><img src="images/${fn:replace(game.name, ' ', '')}.jpg" alt="${game.name}image">
             <p>Game = ${game.name}</p>
+            <p>Quantity = ${game.quantity}</p>
 
         </div><br><br>
     </c:forEach>
