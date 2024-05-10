@@ -17,15 +17,18 @@ ul.top-navbar{
     background-color:#FF9900;
     overflow: hidden;
     margin-top: 0;
+    border-bottom: 0 solid #F70;
+    box-shadow: 0 2px 8px;
 
 
 }
 
 .top-navbar li{
     display: inline;
-    float: left;
     display: flex;
     align-items: center;
+    float: left;
+
 }
 
 .top-navbar a{
@@ -33,6 +36,15 @@ ul.top-navbar{
     display: block;
     padding: 14px 16px;
     background-color: #FF9900;
+
+
+}
+
+.top-navbar h1{
+    display: block;
+    padding: 0px 0px;
+    margin-top: 0;
+    margin-right: 250px;
 }
 
 .top-navbar li:hover a:hover{
@@ -129,4 +141,5 @@ h2{
     background-color: #2F577F;
     color: #F0F0F0;
     text-align: center;
+    box-shadow: 0 2px 8px;
 }

@@ -13,10 +13,9 @@
     <link type="text/css" rel="stylesheet" href="home.css">
 </head>
 <body>
-<h1>TSW Games</h1>
-
 <ul class="top-navbar">
     <li><img src="images/TSWGames.jpg"></li>
+    <li><h1>TSW Games</h1></li>
     <li><a href='search-category-form.html'>Categories</a></li>
     <c:if test="${empty User}">
         <li><a href='login.html'>Login</a></li>
@@ -27,8 +26,10 @@
     </c:if>
     <li><a>Search</a></li>
 
+
 </ul>
 
+<h2>Trending games</h2>
 <% GameDOA gameSearch = new GameDOA();
     HttpSession ssn = request.getSession(true);
     List<Game> games = gameSearch.getTrending();
@@ -37,6 +38,6 @@
     ssn.setAttribute("games", games);
 %>
 <%@include file = "show-games.jsp"%>
-<h2>Trending games</h2>
+
 </body>
 </html>
