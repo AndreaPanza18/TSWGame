@@ -6,8 +6,8 @@ import jakarta.servlet.annotation.*;
 import jakarta.servlet.*;
 import model.*;
 import java.util.*;
-@WebServlet("/AddToCart")
-public class AddToCart extends HttpServlet{
+@WebServlet("/AddToWishlist")
+public class AddToWishlist extends HttpServlet{
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession ssn = request.getSession(true);
@@ -16,12 +16,14 @@ public class AddToCart extends HttpServlet{
             dispatcher.forward(request, response);
         }
         else{
-
             Customer user = (Customer) ssn.getAttribute("User");
-            CartDOA cart = new CartDOA();
+            WishlistDOA getWishlist = new WishlistDOA();
+            List<Game> wishlist = new ArrayList<>();
             int userID = user.getId();
             int gameID = Integer.parseInt(request.getParameter("gameID"));
-            cart.AddToCart(gameID, userID);
+            getWishlist.addToWishlist(gameID,userID);
+            wishlist = getWishlist.getWishlist(userID);
+            ssn.setAttribute("Wishlist", wishlist);
 
             RequestDispatcher dispatcher = request.getRequestDispatcher("home-page.jsp");
             dispatcher.forward(request, response);

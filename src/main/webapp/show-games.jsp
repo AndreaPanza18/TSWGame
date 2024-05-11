@@ -23,7 +23,11 @@
       <p>Price = $${game.price}0</p>
       <form ACTION="AddToCart" method="post">
         <input type="hidden" name="gameID" value="${game.id}" />
-        <input type="submit" value="Add to cart"><br>
+        <input type="submit" value="Add to cart">
+      </form>
+      <form Action="AddToWishlist" method = "post">
+        <input type="hidden" name="gameID" value="${game.id}" />
+        <input type="submit" value="Add to wishlist">
       </form>
     </div><br><br>
   </c:forEach>

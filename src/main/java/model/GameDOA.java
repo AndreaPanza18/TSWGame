@@ -94,25 +94,6 @@ public class GameDOA {
         }
     }
 
-    public List<Game> getCart(int customer_id){
-        try (Connection con = ConPool.getConnection()) {
 
-            List<Game> gameRes = new ArrayList<>();
-            PreparedStatement ps = con.prepareStatement("SELECT game_id,quantity from shopping_cart where customer_id = ?");
-            ps.setInt(1, customer_id);
-            ResultSet rs = ps.executeQuery();
-            while (rs.next()) {
-                Game p = new Game();
-                int id = rs.getInt(1);
-                int quantity = rs.getInt(2);
-                p = getByID(id);
-                p.setQuantity(quantity);
-                gameRes.add(p);
-            }
-            return gameRes;
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-    }
 
 }

@@ -5,6 +5,11 @@ import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
 import jakarta.servlet.*;
 import model.*;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.*;
 @WebServlet("/GetCart")
 public class GetCart extends HttpServlet {
@@ -18,11 +23,13 @@ public class GetCart extends HttpServlet {
         else{
             Customer user = (Customer) ssn.getAttribute("User");
             List<Game> cart = new ArrayList<>();
-            GameDOA getCart = new GameDOA();
+            CartDOA getCart = new CartDOA();
             cart = getCart.getCart(user.getId());
             ssn.setAttribute("Cart", cart);
             RequestDispatcher view = request.getRequestDispatcher("view-cart.jsp");
             view.forward(request, response);
         }
     }
+
+
 }
