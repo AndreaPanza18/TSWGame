@@ -17,13 +17,18 @@
 </head>
 <body>
 <h1>${User.name}'s Shopping cart</h1>
+<a href="home-page.jsp" >Home page</a>
+<h2>Total price $${Price}0</h2>
 <div class="game-result">
     <c:forEach items="${Cart}" var = "game">
         <div  class="game-display">
             <br><img src="images/${fn:replace(game.name, ' ', '')}.jpg" alt="${game.name}image">
             <p>Game = ${game.name}</p>
             <p>Quantity = ${game.quantity}</p>
-
+            <form action="RemoveFromCart" method="post">
+                <input type="hidden" name="gameID" value="${game.id}" />
+                <input type="submit" value="Remove from cart">
+            </form>
         </div><br><br>
     </c:forEach>
 </div>

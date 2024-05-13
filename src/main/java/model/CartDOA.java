@@ -32,6 +32,7 @@ public class CartDOA {
     public List<Game> getCart(int customer_id){
         try (Connection con = ConPool.getConnection()) {
 
+
             List<Game> gameRes = new ArrayList<>();
             PreparedStatement ps = con.prepareStatement("SELECT game_id,quantity from shopping_cart where customer_id = ?");
             ps.setInt(1, customer_id);
@@ -47,6 +48,29 @@ public class CartDOA {
             }
             return gameRes;
         } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public boolean RemoveFromCart(int userID, int gameID, List<Game> cart){
+        try (Connection con = ConPool.getConnection()){
+            for(Game cartGame : cart){
+                if(cartGame.getId() == gameID){
+                    String queryString = new String();
+                    if(cartGame.getQuantity() == 1) {
+                        queryString = "DELETE FROM shopping_cart WHERE game_id = ? and customer_id = ?";
+                    }else{
+                        queryString = "UPDATE shopping_cart set quantity = quantity- 1 where game_id = ? and customer_id = ?";
+                    }
+                    PreparedStatement ps = con.prepareStatement(queryString);
+                    ps.setInt(1, cartGame.getId());
+                    ps.setInt(2, userID);
+                    int rs = ps.executeUpdate();
+                    return true;
+                }
+            }
+            return false;
+        }catch (SQLException e) {
             throw new RuntimeException(e);
         }
     }

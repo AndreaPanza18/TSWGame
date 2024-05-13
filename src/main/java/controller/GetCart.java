@@ -26,10 +26,17 @@ public class GetCart extends HttpServlet {
             CartDOA getCart = new CartDOA();
             cart = getCart.getCart(user.getId());
             ssn.setAttribute("Cart", cart);
+            ssn.setAttribute("Price", TotalPrice(cart));
             RequestDispatcher view = request.getRequestDispatcher("view-cart.jsp");
             view.forward(request, response);
         }
     }
 
-
+    public double TotalPrice(List<Game> cart){
+        double priceTotal = 0;
+        for(Game game : cart){
+            priceTotal += game.getPrice() * game.getQuantity();
+        }
+        return priceTotal;
+    }
 }

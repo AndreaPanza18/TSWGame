@@ -27,6 +27,12 @@ public class Login extends HttpServlet {
         }else{
             HttpSession ssn = request.getSession(true);
             ssn.setAttribute("User", c);
+
+            WishlistDOA getWishlist = new WishlistDOA();
+            List<Game> wishlist = new ArrayList<>();
+            wishlist = getWishlist.getWishlist(c.getId());
+            ssn.setAttribute("Wishlist", wishlist);
+
             RequestDispatcher dispatcher = request.getRequestDispatcher("home-page.jsp");
             dispatcher.forward(request, response);
         }
