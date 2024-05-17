@@ -32,5 +32,10 @@
         </div><br><br>
     </c:forEach>
 </div>
+<a href="${pageContext.request.contextPath}/EmptyCart">Empty cart</a>
+<form action="${pageContext.request.contextPath}/Purchase" method="post">
+    <input type="hidden" name="cart" value="${Cart}">
+    <input type="submit", value="Purchase from cart">
+</form>
 </body>
 </html>

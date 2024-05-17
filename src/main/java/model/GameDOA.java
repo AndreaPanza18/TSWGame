@@ -20,7 +20,7 @@ public class GameDOA {
 
                 p.setId(rs.getInt(1));
                 p.setName(rs.getString(2));
-                p.setPrice((double) rs.getInt(3));
+                p.setPrice( rs.getInt(3));
                 p.setCategory(rs.getString(4));
             }
 
@@ -40,7 +40,7 @@ public class GameDOA {
                 Game p = new Game();
                 p.setId(rs.getInt(1));
                 p.setName(rs.getString(2));
-                p.setPrice((double) rs.getInt(3));
+                p.setPrice( rs.getInt(3));
                 p.setCategory(rs.getString(4));
                 gameRes.add(p);
             }
@@ -62,7 +62,7 @@ public class GameDOA {
                 Game p = new Game();
                 p.setId(rs.getInt(1));
                 p.setName(rs.getString(2));
-                p.setPrice((double) rs.getInt(3));
+                p.setPrice(rs.getInt(3));
                 p.setCategory(rs.getString(4));
                 gameRes.add(p);
             }

@@ -16,6 +16,7 @@
 </head>
 <body>
     <h1 style="text-align: center">All ${search} games</h1>
+    <a href="home-page.jsp" >Home page</a>
     <%@ include file = "show-games.jsp"%>
 
 </body>

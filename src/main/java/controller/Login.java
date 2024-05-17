@@ -33,6 +33,12 @@ public class Login extends HttpServlet {
             wishlist = getWishlist.getWishlist(c.getId());
             ssn.setAttribute("Wishlist", wishlist);
 
+            PurchaseDOA getBGames = new PurchaseDOA();
+            List<Game> boughtGames = new ArrayList<>();
+            boughtGames = getBGames.ViewBoughtGames(c.getId());
+            ssn.setAttribute("BoughtGames", boughtGames);
+
+
             RequestDispatcher dispatcher = request.getRequestDispatcher("home-page.jsp");
             dispatcher.forward(request, response);
         }

@@ -14,7 +14,7 @@ public class AddGame extends HttpServlet{
         Part filePart = request.getPart("image");
         String name= request.getParameter("name");
         String category = request.getParameter("category");
-        double price = Double.parseDouble(request.getParameter("price"));
+        int price = Integer.parseInt(request.getParameter("price"));
         addImage(filePart, name.replace(" ", ""), response);
         GameDOA createGame = new GameDOA();
         Game g = new Game();

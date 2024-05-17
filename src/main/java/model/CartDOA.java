@@ -75,4 +75,15 @@ public class CartDOA {
         }
     }
 
+
+    public void EmptyCart(int userID){
+        try (Connection con = ConPool.getConnection()){
+            PreparedStatement ps = con.prepareStatement("DELETE FROM shopping_cart WHERE  customer_id = ?");
+            ps.setInt(1, userID);
+            int rs = ps.executeUpdate();
+
+        }catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
 }
