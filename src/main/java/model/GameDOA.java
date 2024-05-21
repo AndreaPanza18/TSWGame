@@ -94,6 +94,52 @@ public class GameDOA {
         }
     }
 
+    public int MostBoughtGame() throws SQLException {
+        try (Connection con = ConPool.getConnection()) {
+            List<Game> boughtGames = new ArrayList<>();
+            PreparedStatement ps = con.prepareStatement("SELECT game_id, quantity from purchase_game");
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                int gameID = rs.getInt(1), quantity = rs.getInt(2);
+                if(CheckGame(boughtGames, gameID)){
+                    Game p = new Game();
+                    p = getByID(gameID);
+                    p.setQuantity(quantity);
+                     boughtGames.add(p);
+                } else{
+                    for(Game game: boughtGames){
+                        if(game.getId() == gameID){
+                            game.setQuantity(game.getQuantity() + quantity);
+                        }
+                    }
+                }
+
+            }
+            return HighestQuantityGame(boughtGames);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+    }
 
 
+    private boolean CheckGame(List<Game> games, int gameID){
+        for(Game game: games){
+            if(game.getId() == gameID)
+                return false;
+        }
+        return true;
+    }
+
+    private int HighestQuantityGame(List<Game> games){
+        int quantity = 0, res = 0;
+        for(Game game: games){
+            if (game.getQuantity() > quantity){
+                res = game.getId();
+                quantity = game.getQuantity();
+            }
+        }
+        return res;
+    }
 }
+

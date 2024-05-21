@@ -44,4 +44,17 @@ public class WishlistDOA {
             throw new RuntimeException(e);
         }
     }
+
+    public boolean RemoveFromWishlist(int userID, int gameID){
+        try (Connection con = ConPool.getConnection()){
+                    PreparedStatement ps = con.prepareStatement("delete from wishlist where customer_id = ? and game_id = ?");
+                    ps.setInt(1, userID);
+                    ps.setInt(2, gameID);
+                    int rs = ps.executeUpdate();
+                    return true;
+                } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
 }

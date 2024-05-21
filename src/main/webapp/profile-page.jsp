@@ -41,6 +41,10 @@
                     <input type="hidden" name="gameID" value="${game.id}" />
                     <input type="submit" value="Add to cart"><br>
                 </form>
+                <form ACTION="RemoveFromWishlist" method="post">
+                    <input type="hidden" name="gameID" value="${game.id}">
+                <input type="submit" value="Remove">
+                </form>
 
             </div><br><br>
         </c:forEach>

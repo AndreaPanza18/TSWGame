@@ -29,9 +29,18 @@
 
 </ul>
 
+<h2>Highest bought game</h2>
+<%
+    GameDOA getGame = new GameDOA();
+    HttpSession ssn = request.getSession(true);
+    int gameid = getGame.MostBoughtGame();
+    Game bestGame = getGame.getByID(gameid);
+
+    ssn.setAttribute("BestGame", bestGame);
+%>
+<p>The most bought game is ${BestGame.name}</p>
 <h2>Trending games</h2>
 <% GameDOA gameSearch = new GameDOA();
-    HttpSession ssn = request.getSession(true);
     List<Game> games = gameSearch.getTrending();
 
 
