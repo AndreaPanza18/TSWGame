@@ -29,7 +29,7 @@
 
 </ul>
 
-<h2>Highest bought game</h2>
+<h2>Highest selling game</h2>
 <%
     GameDOA getGame = new GameDOA();
     HttpSession ssn = request.getSession(true);
@@ -38,7 +38,9 @@
 
     ssn.setAttribute("BestGame", bestGame);
 %>
-<p>The most bought game is ${BestGame.name}</p>
+<div class="most-bought">
+    <img src="images/${fn:replace(BestGame.name, ' ', '')}.jpg" alt="${game.name}image">
+</div>
 <h2>Trending games</h2>
 <% GameDOA gameSearch = new GameDOA();
     List<Game> games = gameSearch.getTrending();

@@ -1,13 +1,16 @@
 html{
     background-color: #E6E6E6;
+    font-family: "Comic Sans MS", serif;
 }
+
 
 h1{
     background-color: #FF9900;
     color: #F0F0F0;
     text-align: center;
     margin-bottom: 0;
-
+    box-shadow: 8px 8px 8px rgba(0, 0, 0, 0.1);
+    padding-bottom: 5px;
 }
 
 ul.top-navbar{
@@ -45,6 +48,7 @@ ul.top-navbar{
     padding: 0px 0px;
     margin-top: 0;
     margin-right: 250px;
+    box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.1);
 }
 
 .top-navbar li:hover a:hover{
@@ -142,5 +146,50 @@ h2{
     background-color: #2F577F;
     color: #F0F0F0;
     text-align: center;
-    box-shadow: 0 2px 8px;
+    box-shadow: 8px 8px 8px rgba(0, 0, 0, 0.1);
+}
+
+.most-bought{
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    box-shadow: 8px 8px 8px rgba(0, 0, 0, 0.1);
+    background-color: #c8c8c8;
+}
+
+.most-bought img{
+    width:500px;
+    height:400px;
+    padding: 5px;
+}
+
+.login{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: "Comic Sans MS", serif;
+    background-color: #c8c8c8;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    width: 300px;
+    height: 325px;
+    text-align: center;
+
+}
+
+.login label{
+    display: block;
+
+}
+
+.login input{
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    width: 100%;
+    margin-top: 5px;
+    margin-bottom: 5px;
 }

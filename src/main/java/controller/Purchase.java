@@ -21,6 +21,7 @@ public class Purchase extends HttpServlet{
         Customer user = (Customer) ssn.getAttribute("User");
 
         List<Game> cart = (List<Game>) ssn.getAttribute("Cart");
+        List<Game> boughtGames = new ArrayList<>();
 
         PurchaseDOA purchase = new PurchaseDOA();
         try {
@@ -29,6 +30,8 @@ public class Purchase extends HttpServlet{
             throw new RuntimeException(e);
         }
 
+        boughtGames = purchase.ViewBoughtGames(user.getId());
+        ssn.setAttribute("BoughtGames", boughtGames);
         RequestDispatcher view = request.getRequestDispatcher("home-page.jsp");
         view.forward(request, response);
 
