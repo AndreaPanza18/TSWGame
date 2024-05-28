@@ -16,15 +16,29 @@
 <ul class="top-navbar">
     <li><img src="images/TSWGames.jpg"></li>
     <li><h1>TSW Games</h1></li>
-    <li><a href='search-category-form.html'>Categories</a></li>
+    <!--<li><a href='search-category-form.html'>Categories</a></li>-->
+    <li><form action="SearchCategory" method="get">
+        <p>
+            Category:
+            <select name="category" size="1" class="category-select">
+                <option value="Nintendo"> Nintendo </option>
+                <option value="PS4"> PS4 </option>
+                <option value="XBOX"> XBOX </option>
+                <option value="PC"> PC </option>
+            </select>
+            <input type="submit" value="Search">
+        </p>
+    </form><br></li>
     <c:if test="${empty User}">
         <li><a href='login.html'>Login</a></li>
     </c:if>
     <c:if test="${not empty User}">
         <li><a href="profile-page.jsp">${User.name}</a></li>
-        <li><a href="${pageContext.request.contextPath}/GetCart">Cart</a> </li>
+        <li><a href="${pageContext.request.contextPath}/GetCart">Cart </a> </li>
     </c:if>
-    <li><a>Search</a></li>
+    <c:if test="${not empty Permission and Permission}">
+        <li><a href="administrator-page.jsp">Admin Page</a></li>
+    </c:if>
 
 
 </ul>

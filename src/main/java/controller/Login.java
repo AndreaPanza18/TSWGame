@@ -27,6 +27,7 @@ public class Login extends HttpServlet {
         }else{
             HttpSession ssn = request.getSession(true);
             ssn.setAttribute("User", c);
+            ssn.setAttribute("Permission", c.isPermission());
 
             WishlistDOA getWishlist = new WishlistDOA();
             List<Game> wishlist = new ArrayList<>();

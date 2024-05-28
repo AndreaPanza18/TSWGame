@@ -16,8 +16,12 @@
     <link type="text/css" rel="stylesheet" href="home.css">
 </head>
 <body>
-<h1>${User.name}'s Shopping cart</h1>
-<a href="home-page.jsp" >Home page</a>
+<ul class="top-navbar">
+    <li><a href="home-page.jsp" >Home page</a></li>
+    <li><h1 style="margin-left: 400px">${User.name}'s Shopping cart</h1><li>
+</ul>
+
+
 <h2>Total price $${Price}0</h2>
 <div class="game-result">
     <c:forEach items="${Cart}" var = "game">
@@ -32,7 +36,7 @@
         </div><br><br>
     </c:forEach>
 </div>
-<a href="${pageContext.request.contextPath}/EmptyCart">Empty cart</a>
+<a href="${pageContext.request.contextPath}/EmptyCart">Empty cart</a><br><br>
 <form action="${pageContext.request.contextPath}/Purchase" method="post">
     <input type="hidden" name="cart" value="${Cart}">
     <input type="submit", value="Purchase from cart">

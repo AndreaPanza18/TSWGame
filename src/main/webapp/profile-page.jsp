@@ -14,9 +14,12 @@
     <link type="text/css" rel="stylesheet" href="home.css">
 </head>
 <body>
-    <h1>${User.name} ${User.lastName}'s profile</h1><br>
+    <ul class="top-navbar">
+        <li><a href="home-page.jsp" >Home page</a></li>
+        <li><h1 style="margin-left: 350px">${User.name} ${User.lastName}'s profile</h1><li>
+    </ul>
+
     <p>Email : ${User.email}</p><br>
-    <a href="home-page.jsp" >Home page</a>
     <h2>Bought games:</h2><br>
     <div class="game-result">
         <c:forEach items="${BoughtGames}" var = "game">

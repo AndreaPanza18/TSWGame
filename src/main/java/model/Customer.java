@@ -6,6 +6,7 @@ public class Customer {
     private String email;
     private String password;
     private int id;
+    private boolean permission;
 
     public void setId(int id) {
         this.id = id;
@@ -45,5 +46,13 @@ public class Customer {
 
     public String getPassword() {
         return password;
+    }
+
+    public boolean isPermission(){
+        return permission;
+    }
+
+    public void setPermission(boolean permission) {
+        this.permission = permission;
     }
 }

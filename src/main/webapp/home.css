@@ -43,6 +43,13 @@ ul.top-navbar{
 
 }
 
+.top-navbar p{
+    color: #F0F0F0;
+    display: block;
+    background-color: #FF9900;
+    margin-top: 10px;
+}
+
 .top-navbar h1{
     display: block;
     padding: 0px 0px;
@@ -75,19 +82,23 @@ a:hover{
     background-color: #014701;
 }
 
-.select-category {
-    position: relative;
-    font-family: Arial;
-
+.top-navbar form{
+    height: 50px;
 }
-
-.select-category select{
+.top-navbar select{
     cursor: pointer;
     user-select: none;
     display: inline;
-    background-color: #2F577F;
-    padding: 8px 16px;
+    background-color: #FF9900;
     color: #F0F0F0;
+    padding: 8px 16px;
+
+}
+
+.top-navbar input{
+    color: #F0F0F0;
+    background-color: #FF7700;
+    padding: 4px 6px;
 }
 
 .select-category p{
@@ -147,6 +158,7 @@ h2{
     color: #F0F0F0;
     text-align: center;
     box-shadow: 8px 8px 8px rgba(0, 0, 0, 0.1);
+    padding-bottom: 5px;
 }
 
 .most-bought{
@@ -192,4 +204,22 @@ h2{
     width: 100%;
     margin-top: 5px;
     margin-bottom: 5px;
+}
+
+.login input:focus {
+    outline: 0;
+}
+
+.login.success input {
+    border-color: #09c372;
+}
+
+.login.error input {
+    border-color: #ff3860;
+}
+
+.login .error {
+    color: #ff3860;
+    font-size: 9px;
+    height: 13px;
 }

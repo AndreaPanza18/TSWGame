@@ -7,7 +7,7 @@ public class CustomerDOA {
     public Customer loginUser(String email, String password){
         try (Connection con = ConPool.getConnection()) {
             Customer c = new Customer();
-            PreparedStatement ps = con.prepareStatement("SELECT id, name, last_name, email, password from customer  where email = ? AND password = ?");
+            PreparedStatement ps = con.prepareStatement("SELECT id, name, last_name, email, password, permission from customer  where email = ? AND password = ?");
             ps.setString(1, email);
             ps.setString(2,password);
             ResultSet rs = ps.executeQuery();
@@ -17,6 +17,7 @@ public class CustomerDOA {
                 c.setLastName(rs.getString(3));
                 c.setEmail(rs.getString(4));
                 c.setPassword(rs.getString(5));
+                c.setPermission(rs.getBoolean(6));
                 return c;
             }else return null;
         } catch (SQLException e) {
