@@ -30,15 +30,13 @@
         </p>
     </form><br></li>
     <c:if test="${empty User}">
-        <li><a href='login.html'>Login</a></li>
+        <li style="margin-left: 450px"><a href='login.html'>Login</a></li>
     </c:if>
     <c:if test="${not empty User}">
-        <li><a href="profile-page.jsp">${User.name}</a></li>
+        <li style="margin-left: 350px"><a href="profile-page.jsp">${User.name}</a></li>
         <li><a href="${pageContext.request.contextPath}/GetCart">Cart </a> </li>
     </c:if>
-    <c:if test="${not empty Permission and Permission}">
-        <li><a href="administrator-page.jsp">Admin Page</a></li>
-    </c:if>
+
 
 
 </ul>
