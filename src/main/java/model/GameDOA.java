@@ -132,14 +132,14 @@ public class GameDOA {
     }
 
     private int HighestQuantityGame(List<Game> games){
-        int quantity = 0, res = 0;
+        int quantity = 0, result = 0;
         for(Game game: games){
             if (game.getQuantity() > quantity){
-                res = game.getId();
+                result = game.getId();
                 quantity = game.getQuantity();
             }
         }
-        return res;
+        return result;
     }
 }
 
