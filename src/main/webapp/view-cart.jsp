@@ -36,10 +36,12 @@
         </div><br><br>
     </c:forEach>
 </div>
-<a href="${pageContext.request.contextPath}/EmptyCart">Empty cart</a><br><br>
-<form action="${pageContext.request.contextPath}/Purchase" method="post">
-    <input type="hidden" name="cart" value="${Cart}">
-    <input type="submit", value="Purchase from cart">
-</form>
+<c:if test = "${not empty Cart}">
+    <a href="${pageContext.request.contextPath}/EmptyCart">Empty cart</a><br><br>
+    <form action="${pageContext.request.contextPath}/Purchase" method="post">
+        <input type="hidden" name="cart" value="${Cart}">
+        <input type="submit" value="Purchase from cart" style="background-color:#006100; color: #F0F0F0;">
+    </form>
+</c:if>
 </body>
 </html>

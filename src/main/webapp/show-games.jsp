@@ -20,7 +20,7 @@
     <div  class="game-display">
       <br><img src="images/${fn:replace(game.name, ' ', '')}.jpg" alt="${game.name}image">
       <p>Game = ${game.name}</p>
-      <p>Price = $${game.price/10}0</p>
+      <p>Price = $${game.price}.00</p>
       <form ACTION="AddToCart" method="post">
         <input type="hidden" name="gameID" value="${game.id}" />
         <input type="submit" value="Add to cart">
