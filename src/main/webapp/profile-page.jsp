@@ -18,7 +18,7 @@
         <li><a href="home-page.jsp" >Home page</a></li>
         <li><h1 style="margin-left: 350px">${User.name} ${User.lastName}'s profile</h1><li>
         <c:if test="${not empty Permission and Permission}">
-        <li><a href="administrator-page.jsp">Admin Page</a></li>
+        <li><a href="${pageContext.request.contextPath}/CreateAdmin">Admin Page</a></li>
         </c:if>
         <li><a href="${pageContext.request.contextPath}/Logout">Log out</a></li>
     </ul>

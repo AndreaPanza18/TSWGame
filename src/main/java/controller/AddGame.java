@@ -29,7 +29,8 @@ public class AddGame extends HttpServlet{
     }
 
     protected void addImage(Part file, String name,  HttpServletResponse response) throws IOException {
-        String uploadDir = "C:\\Users\\ACER\\Desktop\\java code\\ProjectDB\\src\\main\\webapp\\images";
+        ServletContext cont = getServletContext();
+        String uploadDir = cont.getRealPath("/images");
         String filePath = uploadDir + File.separator + name + ".jpg";
         try (InputStream fileContent = file.getInputStream();
              OutputStream outputStream = new FileOutputStream(filePath)) {

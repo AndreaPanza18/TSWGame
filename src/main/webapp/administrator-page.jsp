@@ -12,7 +12,7 @@
     <link type="text/css" rel="stylesheet" href="home.css">
 
 
-
+    <script src="search-bar.js" defer></script>
 </head>
 <body>
     <ul class="top-navbar">
@@ -21,5 +21,10 @@
         <li><h1 style="margin-left: 400px">Admin Page</h1><li>
 
     </ul>
+    <div class="login">
+        <input type="text" id="search" placeholder="Search bought games" onkeyup="searchFunction()">
+        <div id="results"></div>
+    </div>
+
 </body>
 </html>

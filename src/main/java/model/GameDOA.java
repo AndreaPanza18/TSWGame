@@ -141,5 +141,33 @@ public class GameDOA {
         }
         return result;
     }
+
+    public List<Game> BoughtGameList() throws SQLException {
+        try (Connection con = ConPool.getConnection()) {
+            List<Game> boughtGames = new ArrayList<>();
+            PreparedStatement ps = con.prepareStatement("SELECT game_id, quantity from purchase_game");
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                int gameID = rs.getInt(1), quantity = rs.getInt(2);
+                if(CheckGame(boughtGames, gameID)){
+                    Game p = new Game();
+                    p = getByID(gameID);
+                    p.setQuantity(quantity);
+                    boughtGames.add(p);
+                } else{
+                    for(Game game: boughtGames){
+                        if(game.getId() == gameID){
+                            game.setQuantity(game.getQuantity() + quantity);
+                        }
+                    }
+                }
+
+            }
+            return boughtGames;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+    }
 }
 
