@@ -21,9 +21,8 @@ public class Login extends HttpServlet {
         c = checkLogin.loginUser(email, password);
 
         if(c == null){
-            out.println("<html><body>");
-            out.println("<p>Error: Quest'account non esiste</p>");
-            out.println("</html></body>");
+            RequestDispatcher dispatcher = request.getRequestDispatcher("error-login.html");
+            dispatcher.forward(request, response);
         }else{
             HttpSession ssn = request.getSession(true);
             ssn.setAttribute("User", c);
