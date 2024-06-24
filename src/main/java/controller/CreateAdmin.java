@@ -4,9 +4,10 @@ import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
 import jakarta.servlet.*;
 import model.*;
-
 import java.sql.SQLException;
 import java.util.*;
+
+//This servlet take all the game data, and pass them to the admin page
 @WebServlet("/CreateAdmin")
 public class CreateAdmin extends HttpServlet{
     @Override
