@@ -1,12 +1,13 @@
 package model;
-
 import java.util.*;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+
 public class WishlistDOA {
+    //Add a new game in the wishlist table of a certain User
     public void addToWishlist(int gameID, int CustomerID ) {
         try (Connection con = ConPool.getConnection()) {
             PreparedStatement ps = con.prepareStatement(
@@ -25,6 +26,7 @@ public class WishlistDOA {
         }
     }
 
+    //Return the Wishlist of the specified User
     public List<Game> getWishlist(int customer_id){
         try (Connection con = ConPool.getConnection()) {
 
@@ -45,14 +47,15 @@ public class WishlistDOA {
         }
     }
 
+    //Remove a game from the wishlist of the User
     public boolean RemoveFromWishlist(int userID, int gameID){
         try (Connection con = ConPool.getConnection()){
-                    PreparedStatement ps = con.prepareStatement("delete from wishlist where customer_id = ? and game_id = ?");
-                    ps.setInt(1, userID);
-                    ps.setInt(2, gameID);
-                    int rs = ps.executeUpdate();
-                    return true;
-                } catch (SQLException e) {
+            PreparedStatement ps = con.prepareStatement("delete from wishlist where customer_id = ? and game_id = ?");
+            ps.setInt(1, userID);
+            ps.setInt(2, gameID);
+            int rs = ps.executeUpdate();
+            return true;
+        } catch (SQLException e) {
             throw new RuntimeException(e);
         }
     }
