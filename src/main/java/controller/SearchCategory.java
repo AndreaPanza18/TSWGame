@@ -6,8 +6,8 @@ import jakarta.servlet.*;
 import model.*;
 import java.util.*;
 
+//This servlet search games by their categories
 @WebServlet("/SearchCategory")
-
 public class SearchCategory extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
