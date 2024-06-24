@@ -1,13 +1,13 @@
 package controller;
-
 import java.io.*;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
 import jakarta.servlet.*;
 import model.*;
 import java.util.*;
-@WebServlet("/Login")
 
+//This servlet is forn the login of the User, if it goes wrong the servlet showup the "error-login.html" page
+@WebServlet("/Login")
 public class Login extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
