@@ -3,32 +3,28 @@ import java.sql.*;
 import java.util.*;
 
 public class CartDOA {
+    // Take the game data and then, add them into the database
     public boolean AddToCart(int gameID, int userID){
         try (Connection con = ConPool.getConnection()) {
             CallableStatement cs = con.prepareCall("{call add_to_cart(?, ?, ?)}");
             cs.setInt(1, gameID);
             cs.setInt(2, userID);
-            cs.setInt(3, 1); // Assuming quantity is hardcoded as 1 for now
+            cs.setInt(3, 1);
 
-            // Execute the stored procedure
             boolean hasResultSet = cs.execute();
 
-            // Check if there are any result sets returned by the stored procedure
             if (!hasResultSet) {
-                // No result set, means the procedure completed successfully
                 return true;
             } else {
-                // If there's a result set, you might need to handle it
-                // For example, if you expect a result set containing generated keys
                 ResultSet rs = cs.getResultSet();
-                // Process the result set if needed
-                return true; // Assuming success for now
+                return true;
             }
         } catch (SQLException e) {
             throw new RuntimeException("Error adding item to cart: " + e.getMessage(), e);
         }
     }
 
+    //Take the game in the user cart from the database and return them
     public List<Game> getCart(int customer_id){
         try (Connection con = ConPool.getConnection()) {
 
@@ -52,6 +48,7 @@ public class CartDOA {
         }
     }
 
+    //Delete one game from the User cart
     public boolean RemoveFromCart(int userID, int gameID, List<Game> cart){
         try (Connection con = ConPool.getConnection()){
             for(Game cartGame : cart){
@@ -75,7 +72,7 @@ public class CartDOA {
         }
     }
 
-
+    //Delete all the games from the User cart
     public void EmptyCart(int userID){
         try (Connection con = ConPool.getConnection()){
             PreparedStatement ps = con.prepareStatement("DELETE FROM shopping_cart WHERE  customer_id = ?");
