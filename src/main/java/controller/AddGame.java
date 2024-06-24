@@ -4,8 +4,8 @@ import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
 import jakarta.servlet.*;
 import model.*;
-import java.util.*;
 
+// This Servlet take all the game data from the file: "add-game.html" and add them into the database
 @WebServlet("/AddGame")
 @MultipartConfig
 public class AddGame extends HttpServlet{
@@ -40,7 +40,6 @@ public class AddGame extends HttpServlet{
                 outputStream.write(buffer, 0, bytesRead);
             }
         } catch (IOException e) {
-            // Handle any errors
             e.printStackTrace();
             response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, "Error uploading file");
             return;
