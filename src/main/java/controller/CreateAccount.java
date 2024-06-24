@@ -4,7 +4,8 @@ import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
 import jakarta.servlet.*;
 import model.*;
-import java.util.*;
+
+//This servlet take the data and create a new User in the database
 @WebServlet("/CreateAccount")
 public class CreateAccount extends HttpServlet{
     @Override
