@@ -1,14 +1,6 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: ACER
-  Date: 5/5/2024
-  Time: 4:57 PM
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri='http://java.sun.com/jsp/jstl/core' %>
 <%@ taglib prefix="fn" uri='http://java.sun.com/jsp/jstl/functions' %>
-
 
 <html>
 <head>
@@ -21,8 +13,7 @@
     <li><h1 style="margin-left: 400px">${User.name}'s Shopping cart</h1><li>
 </ul>
 
-
-<h2>Total price $${Price}0</h2>
+<h2>Total price $${Price}0</h2> <!--All the games present in the cart are showup here and also the total price of the entire cart-->
 <div class="game-result">
     <c:forEach items="${Cart}" var = "game">
         <div  class="game-display">
@@ -36,7 +27,7 @@
         </div><br><br>
     </c:forEach>
 </div>
-<c:if test = "${not empty Cart}">
+<c:if test = "${not empty Cart}"> <!--If the cart is not empty, the User will see also two button: one for clean the cart and another to purchase-->
     <a href="${pageContext.request.contextPath}/EmptyCart">Empty cart</a><br><br>
     <form action="${pageContext.request.contextPath}/Purchase" method="post">
         <input type="hidden" name="cart" value="${Cart}">
