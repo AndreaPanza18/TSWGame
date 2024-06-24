@@ -1,7 +1,9 @@
 package model;
 import java.sql.*;
 import java.util.*;
+
 public class PurchaseDOA {
+    //Function for purchase games that are in the cart
     public void PurchaseFromCart(List<Game> cart, int userID) throws SQLException {
 
         try (Connection con = ConPool.getConnection()){
@@ -38,6 +40,7 @@ public class PurchaseDOA {
         }
     }
 
+    //List of all the games bought by this User
     public List<Game> ViewBoughtGames(int userID){
         try (Connection con = ConPool.getConnection()) {
 
@@ -60,4 +63,3 @@ public class PurchaseDOA {
     }
 
 }
-
