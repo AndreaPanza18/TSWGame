@@ -1,35 +1,33 @@
 document.getElementById("form").addEventListener("submit", function(event) {
     event.preventDefault();
 
-    // Ottenere i valori dei campi email e password
+    // Get the values of the email and password fields
     const email = document.getElementById("email").value;
     const password = document.getElementById("password").value;
 
-    // Resettare i messaggi di errore
+    // Reset error messages
     document.getElementById("emailError").textContent = "";
     document.getElementById("passwordError").textContent = "";
 
-    // Variabili per tenere traccia degli errori
+    // Variables to track errors
     let isValid = true;
 
-    // Controllo dell'email
+    // Email check
     if (!validateEmail(email)) {
         document.getElementById("emailError").textContent = "Inserisci un'email valida.";
         isValid = false;
-        console.log("DIO CANE!")
     }
 
-    // Controllo della password
+    // Password check
     if (!validatePassword(password)) {
         document.getElementById("passwordError").textContent = "La password deve essere di almeno 8 caratteri e contenere almeno una lettera maiuscola, una minuscola e un numero.";
         isValid = false;
     }
 
-    // Se tutti i campi sono validi, puoi procedere con il submit del form
+    // If all thhe parameters are ok, the app can proceed
     if (isValid) {
         alert("Login riuscito!");
         event.target.submit();
-        // Esegui il submit del form, invia i dati al server, ecc.
     }
 });
 
