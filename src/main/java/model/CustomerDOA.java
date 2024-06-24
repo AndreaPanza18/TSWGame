@@ -1,9 +1,8 @@
 package model;
 import java.sql.*;
-import java.util.*;
-
 
 public class CustomerDOA {
+    //Login for the user: controll if the User already exists
     public Customer loginUser(String email, String password){
         try (Connection con = ConPool.getConnection()) {
             Customer c = new Customer();
@@ -19,13 +18,15 @@ public class CustomerDOA {
                 c.setPassword(rs.getString(5));
                 c.setPermission(rs.getBoolean(6));
                 return c;
-            }else return null;
+            }else
+                return null;
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
 
     }
 
+    //Creation of the account for a new User
     public boolean CreateAccount(Customer c){
         try(Connection con = ConPool.getConnection()){
             PreparedStatement ps = con.prepareStatement("INSERT INTO customer(name, last_name, email, password) VALUES(?,?,?,?)",
