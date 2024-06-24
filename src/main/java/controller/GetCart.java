@@ -1,16 +1,12 @@
 package controller;
-
 import java.io.*;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
 import jakarta.servlet.*;
 import model.*;
-
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.*;
+
+//This servlet drop all the info of the cart
 @WebServlet("/GetCart")
 public class GetCart extends HttpServlet {
     @Override
