@@ -1,5 +1,4 @@
 package controller;
-
 import jakarta.servlet.*;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -7,10 +6,9 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import model.*;
-
 import java.io.IOException;
-import java.util.*;
-import controller.*;
+
+// This servlet let clean the cart
 @WebServlet("/EmptyCart")
 public class EmptyCart extends HttpServlet {
     @Override
