@@ -1,5 +1,4 @@
 package controller;
-
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -8,11 +7,11 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import model.*;
-
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.*;
-import controller.*;
+
+//This servlet let the User purchase the games from the cart and save them in the section of the bought games
 @WebServlet("/Purchase")
 public class Purchase extends HttpServlet{
     @Override
