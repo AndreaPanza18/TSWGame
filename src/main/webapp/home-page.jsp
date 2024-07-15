@@ -13,11 +13,11 @@
     <link type="text/css" rel="stylesheet" href="home.css">
 </head>
 <body>
+
 <ul class="top-navbar">
     <li><img src="images/TSWGames.jpg"></li>
     <li><h1>TSW Games</h1></li>
-    <!--<li><a href='search-category-form.html'>Categories</a></li>-->
-    <li><form action="SearchCategory" method="get">
+    <li><form action="SearchCategory" method="get"> <!--Drop down menu to search for games by thier platform-->
         <p>
             Category:
             <select name="category" size="1" class="category-select">
@@ -29,35 +29,30 @@
             <input type="submit" value="Search">
         </p>
     </form><br></li>
-    <c:if test="${empty User}">
-        <li style="margin-left: 450px"><a href='login.html'>Login</a></li>
+    <c:if test="${empty User}"> <!--If the User is not logged in, he will see the link to the login page-->
+        <li style="margin-left: 0; @media (min-width: 481px) { margin-left: 450px; }"><a href='login.html'>Login</a></li>
     </c:if>
-    <c:if test="${not empty User}">
+    <c:if test="${not empty User}"> <!--If the User is already logged in, he will see the link to the profile page -->
         <li style="margin-left: 350px"><a href="profile-page.jsp">${User.name}</a></li>
         <li><a href="${pageContext.request.contextPath}/GetCart">Cart </a> </li>
     </c:if>
-
-
-
 </ul>
 
-<h2>Highest selling game</h2>
+<h2>Highest selling game</h2> <!--The highest selling game of the moment, is showed up in the middled of the page-->
 <%
     GameDOA getGame = new GameDOA();
     HttpSession ssn = request.getSession(true);
     int gameid = getGame.MostBoughtGame();
     Game bestGame = getGame.getByID(gameid);
-
     ssn.setAttribute("BestGame", bestGame);
 %>
 <div class="most-bought">
     <img src="images/${fn:replace(BestGame.name, ' ', '')}.jpg" alt="${game.name}image">
 </div>
-<h2>Trending games</h2>
-<% GameDOA gameSearch = new GameDOA();
+<h2>Trending games</h2> <!--All the treanding games are the last section off the homepage -->
+<%
+    GameDOA gameSearch = new GameDOA();
     List<Game> games = gameSearch.getTrending();
-
-
     ssn.setAttribute("games", games);
 %>
 <%@include file = "show-games.jsp"%>

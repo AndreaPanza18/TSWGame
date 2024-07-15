@@ -22,6 +22,8 @@ ul.top-navbar{
     margin-top: 0;
     border-bottom: 0 solid #F70;
     box-shadow: 0 2px 8px;
+    display: flex;
+    flex-wrap: wrap;
 
 
 }
@@ -70,6 +72,49 @@ ul.top-navbar{
     border-radius: 50%;
     background-color: #FF9900;
     display: inline;
+}
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: 1.5em; /* Adjust font size for smaller screens */
+        padding: 10px; /* Adjust padding */
+    }
+    ul.top-navbar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .top-navbar li {
+        width: 100%;
+    }
+
+    .top-navbar a, .top-navbar h1 {
+        width: 100%;
+        text-align: left;
+        padding-left: 16px;
+    }
+
+    .top-navbar img {
+        padding: 4px 16px;
+    }
+
+    .top-navbar h1 {
+        margin: 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .top-navbar a {
+        padding: 10px 12px;
+    }
+
+    .top-navbar h1 {
+        font-size: 1.5em;
+        margin-right: 0;
+    }
+    h1 {
+        font-size: 1.2em; /* Further adjust font size for even smaller screens */
+    }
 }
 
 a{

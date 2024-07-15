@@ -1,5 +1,4 @@
 package controller;
-
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -10,10 +9,11 @@ import jakarta.servlet.http.HttpSession;
 import model.WishlistDOA;
 import model.Customer;
 import model.*;
-
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+
+//This servlet let the User remove the game that are in the wishlist
 @WebServlet("/RemoveFromWishlist")
 public class RemoveFromWishlist extends HttpServlet {
     @Override
@@ -30,8 +30,6 @@ public class RemoveFromWishlist extends HttpServlet {
 
         RequestDispatcher view = request.getRequestDispatcher("profile-page.jsp");
         view.forward(request, response);
-
-
 
     }
 }

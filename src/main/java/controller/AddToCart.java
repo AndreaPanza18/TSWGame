@@ -1,11 +1,11 @@
 package controller;
-
 import java.io.*;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
 import jakarta.servlet.*;
 import model.*;
-import java.util.*;
+
+// This servlet controll if the user is already logged in and let them add games into the cart
 @WebServlet("/AddToCart")
 public class AddToCart extends HttpServlet{
     @Override

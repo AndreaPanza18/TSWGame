@@ -1,12 +1,12 @@
 package controller;
-
 import java.io.*;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
 import jakarta.servlet.*;
 import model.*;
 import java.util.*;
-import controller.*;
+
+//This servlet let the User remove from the cart all the games that were in there
 @WebServlet("/RemoveFromCart")
 public class RemoveFromCart extends HttpServlet{
     @Override
@@ -27,7 +27,5 @@ public class RemoveFromCart extends HttpServlet{
         } else{
             request.getRequestDispatcher("/WEB-INF/error404.jsp").forward(request, response);
         }
-
-
     }
 }

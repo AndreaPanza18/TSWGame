@@ -1,17 +1,10 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: ACER
-  Date: 4/6/2024
-  Time: 2:06 PM
-  To change this template use File | Settings | File Templates.
---%>
 <%@ taglib prefix="c" uri='http://java.sun.com/jsp/jstl/core' %>
 <%@ taglib prefix="fn" uri='http://java.sun.com/jsp/jstl/functions' %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 <html>
 <head>
-    <title>${search} games</title>
+    <title>${search} games</title> <!--Based on the research this page will showed up all the relative games-->
     <link type="text/css" rel="stylesheet" href="home.css">
 </head>
 <body>
